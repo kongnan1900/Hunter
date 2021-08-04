@@ -24,46 +24,20 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'hunter-timing-library'
+apply plugin: 'maven'
 
-    publishedGroupId = 'com.quinn.hunter'
-    libraryName = 'hunter-timing-library'
-    artifact = 'hunter-timing-library'
+def artifact='hunter-timing-library'
+def url = 'http://172.16.209.7:8081/repository/maven-releases'
 
-    libraryDescription = 'A fast, incremental, cocurrent framework to develop compile plugin for android project'
-
-    siteUrl = 'https://github.com/Leaking/Hunter'
-    gitUrl = 'https://github.com/Leaking/Hunter.git'
-
-    libraryVersion = '0.9.4'
-
-    developerId = 'Leaking'
-    developerName = 'QuinnChen'
-    developerEmail = 'chenhuazhaoao@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: url) {
+                authentication("userName":"admin","password":"Flutter")
+            }
+            pom.groupId = 'com.quinn.hunter.hh'
+            pom.artifactId = artifact
+            pom.version = '1.0.1'
+        }
+    }
 }
-
-apply from: '../script/installv1.gradle'
-apply from: '../script/bintrayv1.gradle'
-
-//publish script for debug mode
-
-//apply plugin: 'maven'
-//
-//group='com.quinn.hunter'
-//version='1.0.0'
-//
-//def localRepoURL = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-//
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            repository(url: localRepoURL)
-//        }
-//    }
-//}

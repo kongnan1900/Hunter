@@ -3,8 +3,8 @@ apply plugin: 'java-library'
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
-    implementation 'com.android.tools.build:gradle:4.1.0'
-    implementation 'com.android.tools.build:gradle-api:4.1.0'
+    implementation 'com.android.tools.build:gradle:3.2.0'
+    implementation 'com.android.tools.build:gradle-api:3.2.0'
     implementation 'commons-io:commons-io:2.6'
     implementation 'org.ow2.asm:asm:7.1'
     implementation 'org.ow2.asm:asm-util:7.1'
@@ -13,51 +13,28 @@ dependencies {
 
 repositories {
     maven {
-        url uri('../repo')
+        url uri('http://172.16.209.7:8081/repository/maven-releases')
     }
     google()
     jcenter()
     mavenCentral()
 }
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'hunter-transform'
 
-    publishedGroupId = 'com.quinn.hunter'
-    libraryName = 'hunter-transform'
-    artifact = 'hunter-transform'
+apply plugin: 'maven'
 
-    libraryDescription = 'A fast, incremental, cocurrent framework to develop compile plugin for android project'
+def artifact='hunter-transform'
+def url = 'http://172.16.209.7:8081/repository/maven-releases'
 
-    siteUrl = 'https://github.com/Leaking/Hunter'
-    gitUrl = 'https://github.com/Leaking/Hunter.git'
-
-    libraryVersion = '1.1.0'
-
-    developerId = 'Leaking'
-    developerName = 'QuinnChen'
-    developerEmail = 'chenhuazhaoao@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: url) {
+                authentication("userName":"admin","password":"Flutter")
+            }
+            pom.groupId = 'com.quinn.hunter.hh'
+            pom.artifactId = artifact
+            pom.version = '1.0.2'
+        }
+    }
 }
-
-apply from: '../script/installv1.gradle'
-apply from: '../script/bintrayv1.gradle'
-
-//apply plugin: 'maven'
-//
-//group='com.quinn.hunter'
-//version='1.0.0'
-//
-//def localRepoURL = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-//
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            repository(url: localRepoURL)
-//        }
-//    }
-//}

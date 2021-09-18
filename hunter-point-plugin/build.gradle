@@ -1,14 +1,17 @@
-apply plugin: 'java-library'
+apply plugin: 'groovy'
 
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
     implementation 'com.android.tools.build:gradle:3.2.0'
     implementation 'com.android.tools.build:gradle-api:3.2.0'
-    implementation 'commons-io:commons-io:2.6'
+    //noinspection GradleDependency
     implementation 'org.ow2.asm:asm:7.1'
+    //noinspection GradleDependency
     implementation 'org.ow2.asm:asm-util:7.1'
+    //noinspection GradleDependency
     implementation 'org.ow2.asm:asm-commons:7.1'
+    implementation 'com.quinn.hunter.hh:hunter-transform:1.0.2'
 }
 
 repositories {
@@ -20,22 +23,21 @@ repositories {
     mavenCentral()
 }
 
-
 apply plugin: 'maven'
 
-def artifact='hunter-transform'
+def artifact='hunter-point-plugin'
 def url = 'http://172.16.209.7:8081/repository/maven-releases'
 def localRepoURL = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
 
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: localRepoURL) {
+            repository(url: url) {
                 authentication("userName":"admin","password":"Flutter")
             }
             pom.groupId = 'com.quinn.hunter.hh'
             pom.artifactId = artifact
-            pom.version = '1.0.2'
+            pom.version = '1.0.9'
         }
     }
 }

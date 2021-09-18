@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+apply plugin: 'maven'
+
+def artifact='hunter-point-library'
+def url = 'http://172.16.209.7:8081/repository/maven-releases'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: url) {
+                authentication("userName":"admin","password":"Flutter")
+            }
+            pom.groupId = 'com.quinn.hunter.hh'
+            pom.artifactId = artifact
+            pom.version = '1.0.1'
+        }
+    }
+}

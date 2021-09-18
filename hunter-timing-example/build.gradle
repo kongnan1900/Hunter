@@ -29,9 +29,11 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
     implementation 'com.quinn.hunter:hunter-timing-library:0.9.4'
+    implementation project(':hunter-point-library')
 }
 
 repositories {
+    maven { url 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath}
     jcenter()
     google()
     mavenLocal()
@@ -39,20 +41,28 @@ repositories {
 
 buildscript {
     repositories {
+        maven { url 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath}
         jcenter()
         google()
         mavenLocal()
     }
     dependencies {
         classpath 'com.quinn.hunter:hunter-timing-plugin:1.1.0'
+        classpath 'com.quinn.hunter.hh:hunter-point-plugin:1.0.6'
         classpath 'com.quinn.hunter:hunter-transform:1.1.0'
+
     }
 }
 
-
-apply plugin: 'hunter-timing'
-
-timingHunterExt {
+//apply plugin: 'hunter-timing'
+//timingHunterExt {
+//    runVariant = 'DEBUG'
+////    whitelist = ['com.quinn.hunter.timing.DataSource']
+////    blacklist = ['com.quinn.hunter.timing.black']
+//}
+//
+apply plugin: 'hunter-point'
+pointHunterExt {
     runVariant = 'DEBUG'
 //    whitelist = ['com.quinn.hunter.timing.DataSource']
 //    blacklist = ['com.quinn.hunter.timing.black']

@@ -13,7 +13,7 @@ import org.gradle.api.logging.Logger;
  */
 public final class PointWeaver extends BaseWeaver {
 
-    private static final String PLUGIN_LIBRARY = "com.hunter.library.point";
+    private static final String PLUGIN_LIBRARY = "com.hunter.library";
     private static final String PLUGIN_HH = "cn.huohua.commonlib.point";
 
     private PointHunterExtension pointHunterExtension;

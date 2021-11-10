@@ -20,7 +20,7 @@ public final class PointClassAdapter extends ClassVisitor{
     @Override
     public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
         super.visit(version, access, name, signature, superName, interfaces);
-        this.isHeritedFromPointHandler = Arrays.toString(interfaces).contains("com/hunter/library/point/IPointHandler");
+        this.isHeritedFromPointHandler = Arrays.toString(interfaces).contains("com/hunter/library");
         this.className = name;
     }
 

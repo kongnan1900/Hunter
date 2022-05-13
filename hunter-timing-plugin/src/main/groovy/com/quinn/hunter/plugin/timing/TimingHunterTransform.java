@@ -25,7 +25,7 @@ public final class TimingHunterTransform extends HunterTransform {
         super(project);
         this.project = project;
         project.getExtensions().create("timingHunterExt", TimingHunterExtension.class);
-        this.bytecodeWeaver = new TimingWeaver();
+        this.bytecodeWeaver = new TimingWeaver(project);
     }
 
     @Override

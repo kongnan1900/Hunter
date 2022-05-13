@@ -29,7 +29,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
     implementation 'com.quinn.hunter:hunter-timing-library:0.9.4'
-    implementation project(':hunter-point-library')
+//    implementation project(':hunter-point-library')
 }
 
 repositories {
@@ -42,11 +42,15 @@ repositories {
 
 buildscript {
     repositories {
-        maven { url 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath}
+
         jcenter()
         google()
-        mavenLocal()
+
         maven { url 'http://172.16.209.7:8081/repository/maven-releases' }
+        maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        mavenCentral()
+        mavenLocal()
+        maven { url 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath}
     }
     dependencies {
         classpath 'com.quinn.hunter:hunter-timing-plugin:1.1.0'

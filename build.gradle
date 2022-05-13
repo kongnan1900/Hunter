@@ -8,6 +8,7 @@ buildscript {
         google()
         mavenLocal()
         jcenter()
+        maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.0'
@@ -21,6 +22,7 @@ allprojects {
         maven { url 'http://172.16.209.7:8081/repository/maven-releases' }
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven{url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         google()
         mavenLocal()
         jcenter()

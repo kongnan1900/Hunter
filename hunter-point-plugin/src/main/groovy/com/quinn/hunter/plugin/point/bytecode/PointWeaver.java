@@ -55,9 +55,9 @@ public final class PointWeaver extends BaseWeaver {
             //在白名单内并且不在黑名单内
             if (inWhiteList && !inBlackList) {
                 boolean ret = superResult && !isByteCodePlugin;
-                if (ret) {
-                    logger.warn("weave-class: " + fullQualifiedClassName);
-                }
+//                if (ret) {
+//                    logger.warn("weave-class: " + fullQualifiedClassName);
+//                }
                 return ret;
             }
         }

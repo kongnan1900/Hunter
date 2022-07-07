@@ -66,7 +66,7 @@ public final class TimingWeaver extends BaseWeaver {
     }
 
     private void log(String fullQualifiedClassName, boolean ret, int from) {
-        logger.warn("timing-weave-class: " + fullQualifiedClassName + "," + ret + "," + from);
+//        logger.warn("timing-weave-class: " + fullQualifiedClassName + "," + ret + "," + from);
     }
 
 }

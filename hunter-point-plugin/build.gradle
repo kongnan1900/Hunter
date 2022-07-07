@@ -37,7 +37,7 @@ uploadArchives {
             }
             pom.groupId = 'com.quinn.hunter.hh'
             pom.artifactId = artifact
-            pom.version = '1.1.1'
+            pom.version = '1.1.2'
         }
     }
 }

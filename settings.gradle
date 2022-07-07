@@ -1,6 +1,6 @@
 include ':hunter-timing-example',
         ':hunter-timing-plugin',
         ':hunter-timing-library',
-//        ':hunter-point-plugin',
-//        ':hunter-point-library',
+        ':hunter-point-plugin',
+        ':hunter-point-library',
         ':hunter-transform'
